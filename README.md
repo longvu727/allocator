@@ -1,7 +1,7 @@
 # Allocator
 Implemented on PHP 7.3.7
 
-`Allocator.php` consist of two services `Allocator->allocate` and `Allocator->orderHistory` and three components: `order, cart, and inventory.`
+`Allocator.php` consist of three components: `order, cart, and inventory,` and two services `Allocator->allocate` and `Allocator->orderHistory.`
 
 Allocator is structured in the following description:
 ```
@@ -15,6 +15,13 @@ Allocator is structured in the following description:
 
 For the simplicity of implementation, I'm using PHP associated array to full fill the relations.
 
+### Inventory
+Inventory provide availability of product and quantity.
+### Cart
+Cart store products and there quantity and type of allocation( backordered or allocated )
+### Order
+Order contains a single allocate request containing carts and header
+
 ### Allocator->allocate
 Sample Json response:
 
@@ -27,12 +34,8 @@ Sample Json response:
 
 > [{"header":1,"order":{"A":"1","B":0,"C":"1","D":0,"E":0},"allocated":{"A":"1","B":0,"C":"1","D":0,"E":0},"backordered":{"A":0,"B":0,"C":0,"D":0,"E":0}},{"header":2,"order":{"A":0,"B":0,"C":0,"D":0,"E":"5"},"allocated":{"A":0,"B":0,"C":0,"D":0,"E":0},"backordered":{"A":0,"B":0,"C":0,"D":0,"E":"5"}},{"header":3,"order":{"A":0,"B":0,"C":0,"D":"4","E":0},"allocated":{"A":0,"B":0,"C":0,"D":0,"E":0},"backordered":{"A":0,"B":0,"C":0,"D":"4","E":0}},{"header":4,"order":{"A":"1","B":0,"C":"1","D":0,"E":0},"allocated":{"A":"1","B":0,"C":0,"D":0,"E":0},"backordered":{"A":0,"B":0,"C":"1","D":0,"E":0}},{"header":5,"order":{"A":0,"B":"3","C":0,"D":0,"E":0},"allocated":{"A":0,"B":"3","C":0,"D":0,"E":0},"backordered":{"A":0,"B":0,"C":0,"D":0,"E":0}}]
 
-Traversing through `Allocator->orderHistory` 
+Traversing through `Allocator->orders` and organize data into rows of `order->header`, `cart->products`, `cart->allocated_products`, and `cart->backordered_products`.
 
-### Inventory
-Inventory provide availability of product and quantity.
-### order
-when a request to `Allocator->allocate`
 
 ## Tests
 There are two tests:
