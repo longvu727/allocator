@@ -1,3 +1,4 @@
+
 # Allocator
 ***Implemented on PHP 7.3.7***
 
@@ -25,14 +26,14 @@ Order contains a single allocate request containing carts and header
 ### Allocator->allocate
 Sample Json response:
 
-> {"error":"","success":true,"data":{"order":{"header":1,"cart":[{"product":"A","type":"allocated","quantity":"1"},{"product":"C","type":"allocated","quantity":"1"}]}}}
+> *{"error":"","success":true,"data":{"order":{"header":1,"cart":[{"product":"A","type":"allocated","quantity":"1"},{"product":"C","type":"allocated","quantity":"1"}]}}}*
 
 When `allocate` is requested, `Allocator` `validateAllocateInput, createCart,` add `cart` to new `order` then add `order` to `Allocator->orders` list.
 
 ### Allocator->orderHistory
 Sample Json response:
 
-> [{"header":1,"order":{"A":"1","B":0,"C":"1","D":0,"E":0},"allocated":{"A":"1","B":0,"C":"1","D":0,"E":0},"backordered":{"A":0,"B":0,"C":0,"D":0,"E":0}},{"header":2,"order":{"A":0,"B":0,"C":0,"D":0,"E":"5"},"allocated":{"A":0,"B":0,"C":0,"D":0,"E":0},"backordered":{"A":0,"B":0,"C":0,"D":0,"E":"5"}},{"header":3,"order":{"A":0,"B":0,"C":0,"D":"4","E":0},"allocated":{"A":0,"B":0,"C":0,"D":0,"E":0},"backordered":{"A":0,"B":0,"C":0,"D":"4","E":0}},{"header":4,"order":{"A":"1","B":0,"C":"1","D":0,"E":0},"allocated":{"A":"1","B":0,"C":0,"D":0,"E":0},"backordered":{"A":0,"B":0,"C":"1","D":0,"E":0}},{"header":5,"order":{"A":0,"B":"3","C":0,"D":0,"E":0},"allocated":{"A":0,"B":"3","C":0,"D":0,"E":0},"backordered":{"A":0,"B":0,"C":0,"D":0,"E":0}}]
+> *[{"header":1,"order":{"A":"1","B":0,"C":"1","D":0,"E":0},"allocated":{"A":"1","B":0,"C":"1","D":0,"E":0},"backordered":{"A":0,"B":0,"C":0,"D":0,"E":0}},{"header":2,"order":{"A":0,"B":0,"C":0,"D":0,"E":"5"},"allocated":{"A":0,"B":0,"C":0,"D":0,"E":0},"backordered":{"A":0,"B":0,"C":0,"D":0,"E":"5"}},{"header":3,"order":{"A":0,"B":0,"C":0,"D":"4","E":0},"allocated":{"A":0,"B":0,"C":0,"D":0,"E":0},"backordered":{"A":0,"B":0,"C":0,"D":"4","E":0}},{"header":4,"order":{"A":"1","B":0,"C":"1","D":0,"E":0},"allocated":{"A":"1","B":0,"C":0,"D":0,"E":0},"backordered":{"A":0,"B":0,"C":"1","D":0,"E":0}},{"header":5,"order":{"A":0,"B":"3","C":0,"D":0,"E":0},"allocated":{"A":0,"B":"3","C":0,"D":0,"E":0},"backordered":{"A":0,"B":0,"C":0,"D":0,"E":0}}]*
 
 Traversing through `Allocator->orders` and organize data into rows of `order->header`, `cart->products`, `cart->allocated_products`, and `cart->backordered_products`.
 
