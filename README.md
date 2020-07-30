@@ -1,5 +1,5 @@
 # Allocator
-Implemented on PHP 7.3.7
+***Implemented on PHP 7.3.7***
 
 `Allocator.php` consist of three components: `order, cart, and inventory,` and two services `Allocator->allocate` and `Allocator->orderHistory.`
 
