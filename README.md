@@ -13,7 +13,7 @@ Allocator is structured in the following description:
 `Order` has many carts
 `Cart` has many products
 
-For the simplicity of implementation, I'm using PHP associated array to full fill the relations.
+For the simplicity of implementation, I'm using PHP associated array to fulfill the relations.
 
 ### Inventory
 Inventory provide availability of product and quantity.
