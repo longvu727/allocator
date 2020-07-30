@@ -46,7 +46,7 @@ There are two tests:
 ```
 A sample test result is `tests/test_result.txt`
 ### tests/initial_test.php
-Test the example input and result from [Shipwire Coding Project-InventoryAllocation.txt]([https://github.com/longvu727/allocator/blob/master/Shipwire%20Coding%20Project-InventoryAllocation.txt](https://github.com/longvu727/allocator/blob/master/Shipwire%20Coding%20Project-InventoryAllocation.txt))
+Test the example input and result from Shipwire Coding Project-InventoryAllocation.docx
 
 ### tests/rand_input_test.php
 Generate random input to test all possible inputs
